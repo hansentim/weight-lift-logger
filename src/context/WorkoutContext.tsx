@@ -48,7 +48,7 @@ export const WorkoutProvider: React.FC<{ children: ReactNode }> = ({
 };
 
 // Create a custom hook that other components can use to access the workout context.
-export const useWorkout = () => {
+export const useWorkouts = () => {
   const context = useContext(WorkoutContext); // Access the context
 
   // Throw an error if the context is not within a provider (i.e, not wrapped by WorkoutProvider).

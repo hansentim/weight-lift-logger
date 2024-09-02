@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./styles/globals.css";
 import Header from "./components/Header";
 import { UserProvider } from "../context/UserContext";
+import { WorkoutProvider } from "../context/WorkoutContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <UserProvider>
-          <Header />
-          <main className='container mx-auto p-4'>{children}</main>
-        </UserProvider>
+        <WorkoutProvider>
+          <UserProvider>
+            <Header />
+            <main className='container mx-auto p-4'>{children}</main>
+          </UserProvider>
+        </WorkoutProvider>
       </body>
     </html>
   );
